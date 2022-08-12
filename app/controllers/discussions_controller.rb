@@ -5,7 +5,7 @@ class DiscussionsController < ApplicationController
   before_action :set_discussion, only: %i[show edit update destroy]
 
   def index
-    @discussions = Discussion.all
+    @discussions = Discussion.all.order(updated_at: :desc)
   end
 
   def show; end
@@ -31,6 +31,7 @@ class DiscussionsController < ApplicationController
   def update
     respond_to do |format|
       if @discussion.update(discussion_params)
+        @discussion.broadcast_replace(partials: 'discussions/header', locals: { discission: @discussion })
         format.html { redirect_to @discussion, notice: 'Discussion updated successfully' }
       else
         format.html { render :edit, status: :unprocessable_entity }
