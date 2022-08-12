@@ -13,3 +13,6 @@ ActiveStorage.start()
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap'
 import "@hotwired/turbo-rails"
+
+require("trix")
+require("@rails/actiontext")
