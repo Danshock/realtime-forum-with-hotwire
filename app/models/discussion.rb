@@ -2,6 +2,7 @@
 
 class Discussion < ApplicationRecord
   belongs_to :user, default: -> { Current.user }
+  belongs_to :category, counter_cache: true, touch: true
   has_many :posts, dependent: :destroy
 
   validates_presence_of :name

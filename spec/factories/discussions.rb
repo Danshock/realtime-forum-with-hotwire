@@ -6,5 +6,6 @@ FactoryBot.define do
     pinned { false }
     closed { false }
     user
+    category
   end
 end

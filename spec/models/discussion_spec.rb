@@ -6,6 +6,7 @@ RSpec.describe Discussion, type: :model do
   subject { FactoryBot.create(:discussion) }
 
   it { should belong_to(:user) }
+  it { should belong_to(:category) }
   it { should have_many(:posts).dependent(:destroy) }
   it { should validate_presence_of(:name) }
   it { should accept_nested_attributes_for(:posts) }
