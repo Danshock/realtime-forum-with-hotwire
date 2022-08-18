@@ -18,4 +18,5 @@ class Post < ApplicationRecord
                                              partial: 'discussions/posts/post',
                                              locals: { post: self }
                       }
+  after_destroy_commit -> { broadcast_remove_to discussion }
 end
