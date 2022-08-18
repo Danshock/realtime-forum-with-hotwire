@@ -5,6 +5,8 @@ class Discussion < ApplicationRecord
   belongs_to :category, counter_cache: true, touch: true
   has_many :posts, dependent: :destroy
 
+  delegate :name, prefix: :category, to: :category, allow_nil: true
+
   validates_presence_of :name
 
   accepts_nested_attributes_for :posts
