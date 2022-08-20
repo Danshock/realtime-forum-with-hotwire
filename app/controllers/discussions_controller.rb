@@ -5,7 +5,7 @@ class DiscussionsController < ApplicationController
   before_action :set_discussion, only: %i[show edit update destroy]
 
   def index
-    @discussions = Discussion.all.pinned_first
+    @discussions = Discussion.includes(:category).pinned_first
   end
 
   def show
