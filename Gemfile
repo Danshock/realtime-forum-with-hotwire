@@ -22,6 +22,7 @@ gem 'redis', '~> 4.0'
 
 gem 'devise', '~> 4.8'
 gem 'hotwire-rails', '~> 0.1.3'
+gem 'pagy'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
