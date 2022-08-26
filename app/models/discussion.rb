@@ -65,11 +65,7 @@ class Discussion < ApplicationRecord
     return no_notifications_message if user.nil?
 
     if subscription = subscription_for(user)
-      if subscription.subscription_type == 'optout'
-        "You're ignoring this thread."
-      elsif subscription.subscription_type == "optin"
-        "You're receiving notifications because you've subscribed to this thread."
-      end
+      subscribed_or_ignoring_message_for(subscription)
     elsif posts.where(user_id: user.id).any?
       "You're receiving notifications because you've posted in this thread."
     else
@@ -81,5 +77,14 @@ class Discussion < ApplicationRecord
 
   def no_notifications_message
     "You're not receiving notifications from this thread"
+  end
+
+  def subscribed_or_ignoring_message_for(subscription)
+    case subscription.subscription_type
+    when 'optout'
+      "You're ignoring this thread."
+    when 'optin'
+      "You're receiving notifications because you've subscribed to this thread."
+    end
   end
 end
