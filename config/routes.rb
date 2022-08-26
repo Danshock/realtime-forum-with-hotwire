@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'main#index'
+
+  unauthenticated do
+    root to: 'main#index', as: :unauthenticated_root
+  end
+
+  authenticated do
+    root to: 'discussions#index'
+  end
+
   resources :discussions, only: %i[index show new create edit update destroy] do
     resources :posts, only: %i[create show edit update destroy], module: :discussions
 
