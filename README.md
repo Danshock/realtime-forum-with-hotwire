@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails v6 Forum with some hotwire magic ✨  
 
-Things you may want to cover:
+Getting started:
 
-* Ruby version
+To get started with the app, clone the repo and then install the needed gems:
+```
+bundle install --without production
+```
 
-* System dependencies
+Next, migrate the database:
+```
+bin/rails db:migrate
+```
 
-* Configuration
+Finally, run the test suite to verify that everything is working correctly:
+```
+bundle exec rspec
+```
 
-* Database creation
+To run the app in a local server:
+```
+bin/rails server
+```
 
-* Database initialization
+In short:  
 
-* How to run the test suite
+* Users can create discussions
+* Users can add posts in discussions
+* CRUD actions are in realtime (for example when a user updates a discussion, it updates for all users in realtime)
+* There are categories
+* Users can subscribe or unsubscribe for notifications
+* Admin persona
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+... and more. Feel free to explore 😉
