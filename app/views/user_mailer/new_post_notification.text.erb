@@ -1,0 +1,5 @@
+Hello <%= @user.username %>,
+
+There's been a new post in <%= @post.discussion.name %>.
+
+<%= link_to @post.discussion.name, discussion_url(@post.discussion) %>

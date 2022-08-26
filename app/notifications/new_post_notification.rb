@@ -3,7 +3,7 @@
 class NewPostNotification < Noticed::Base
 
   deliver_by :database
-  # deliver_by :email, mailer: "UserMailer"
+  deliver_by :email, mailer: 'UserMailer', delay: 5.minutes, unless: :read?
 
   param :post
 
