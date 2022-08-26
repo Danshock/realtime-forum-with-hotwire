@@ -8,6 +8,7 @@ RSpec.describe User, type: :model do
   it { should have_many(:discussions).dependent(:destroy) }
   it { should have_many(:posts).dependent(:destroy) }
   it { should have_many(:discussion_subscriptions).dependent(:destroy) }
+  it { should have_many(:notifications), as: :recipient }
   it { should validate_presence_of(:username) }
   it { should validate_uniqueness_of(:username) }
 end
